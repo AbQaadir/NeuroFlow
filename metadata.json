@@ -1,0 +1,5 @@
+{
+  "name": "Copy of NeuroFlow Architect",
+  "description": "A Neuro-Symbolic architecture diagram generator. Uses Gemini for semantic reasoning and ELK for deterministic spatial layout.",
+  "requestFramePermissions": []
+}

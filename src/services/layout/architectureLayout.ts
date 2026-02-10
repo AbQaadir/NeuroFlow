@@ -196,6 +196,18 @@ export const calculateArchitectureLayout = async (schema: ArchitectureSchema, di
                 offsetY = nodeAbsPosMap[lca].y;
             }
 
+            // Condition Setup
+            const isArchitect = diagramImpl.type === 'architect';
+
+            // Calculate bend points only for Architecture diagrams
+            let bendPoints: { x: number, y: number }[] | undefined = undefined;
+            if (isArchitect) {
+                bendPoints = (edge.sections || []).flatMap((s: any) => (s.bendPoints || []).map((p: any) => ({
+                    x: p.x + offsetX,
+                    y: p.y + offsetY
+                })));
+            }
+
             return {
                 id: edge.id,
                 source: source,
@@ -206,10 +218,7 @@ export const calculateArchitectureLayout = async (schema: ArchitectureSchema, di
                 data: {
                     pathType: edgeStyle.pathType,
                     label: originalEdge?.label,
-                    bendPoints: (edge.sections || []).flatMap((s: any) => (s.bendPoints || []).map((p: any) => ({
-                        x: p.x + offsetX,
-                        y: p.y + offsetY
-                    })))
+                    bendPoints: bendPoints
                 },
                 style: {
                     stroke: edgeStyle.stroke,
@@ -217,7 +226,8 @@ export const calculateArchitectureLayout = async (schema: ArchitectureSchema, di
                 },
                 labelStyle: { fill: 'var(--foreground)', fontWeight: 500, fontSize: 12 },
                 labelBgStyle: { fill: 'var(--background)', fillOpacity: 0.8 },
-                // zIndex: 100, // Removed to allow edges to sit behind nodes
+                // Restore zIndex for non-architect diagrams (like Flowchart) to maintain layering
+                zIndex: isArchitect ? undefined : 100,
             };
         });
 

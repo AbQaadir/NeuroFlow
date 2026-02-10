@@ -158,7 +158,7 @@ export const ICON_REGISTRY: IconMetadata[] = [
     // ============ BACKEND & LANGUAGES ============
     {
         iconKey: 'SiNodedotjs',
-        keywords: ['node', 'nodejs', 'node.js', 'javascript', 'express', 'backend', 'server'],
+        keywords: ['nodejs', 'node.js', 'javascript', 'express', 'js'],
         category: 'backend',
         priority: 10
     },

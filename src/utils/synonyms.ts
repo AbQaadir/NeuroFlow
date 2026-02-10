@@ -49,7 +49,7 @@ export const SYNONYMS: Record<string, string[]> = {
     'vm': ['virtual machine', 'ec2', 'compute', 'server'],
 
     // Security & Auth
-    'auth': ['authentication', 'authorization', 'oauth', 'jwt', 'login'],
+    'auth': ['authentication', 'authorization', 'oauth', 'jwt', 'login', 'sso', 'identity'],
     'oauth': ['oauth2', 'authentication', 'authorization'],
     'jwt': ['json web token', 'token', 'authentication'],
     'iam': ['identity', 'access management', 'permissions'],
@@ -84,6 +84,11 @@ export const SYNONYMS: Record<string, string[]> = {
     'blob': ['blob storage', 'object storage', 's3'],
     'fs': ['file system', 'storage', 'files'],
     'nfs': ['network file system', 'file storage'],
+
+    // Roles & Functions
+    'worker': ['compute', 'server', 'processing', 'job'],
+    'payment': ['stripe', 'billing', 'money'],
+    'billing': ['stripe', 'payment', 'finance'],
 };
 
 /**

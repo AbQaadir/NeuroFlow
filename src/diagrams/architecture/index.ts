@@ -20,8 +20,11 @@ Your goal is to define the LOGIC and STRUCTURE of a system architecture.
 RULES:
 1. Focus on logical grouping. Use 'group' nodes to represent Clusters, Regions, VPCs.
 2. Node Types: 'service', 'database', 'client', 'queue', 'external', 'group'.
+   - 'client' is OPTIONAL. Only include it if the system implies a user interface (Web, Mobile, CLI).
+   - If the system is backend-only (e.g., API, Cron Job, Event Processor), DO NOT add a client node.
 3. Assign 'parentId' to nodes that belong inside a group. The 'parentId' MUST be the exact 'id' of the group node.
 4. Output strictly conforming JSON.
+5. Do NOT generate descriptions for nodes. Leave the 'description' field as an empty string.
 ${COMMON_RULES}
 `;
 

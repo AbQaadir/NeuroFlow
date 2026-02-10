@@ -123,9 +123,7 @@ export const generateDiagram = async (
           config: {
             systemInstruction: systemInstruction,
             responseMimeType: "application/json",
-            responseSchema: schema,
-            temperature: 0.2,
-            maxOutputTokens: 8192,
+            responseSchema: schema
           },
         });
 
